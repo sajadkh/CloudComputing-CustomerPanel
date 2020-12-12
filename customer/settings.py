@@ -25,7 +25,7 @@ SECRET_KEY = 'd#q8vkn*(cvn=-63l^2fc22wln%48^um=dulce=(g18or7@mr7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'restaurant_customer',
         'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'PASSWORD': '123456',
+        'HOST': 'mysql',
         'PORT': '',
     }
 }

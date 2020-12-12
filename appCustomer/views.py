@@ -18,7 +18,7 @@ PANEL_TOKEN = "Y3VzdG9tZXI6Y3VzdG9tZXJAbG9jYWwuY29tOklOVEVSTkFMOjk5OTk5OQ=="
 
 
 def token_validation(token):
-    r = requests.post("http://localhost:8000/auth/verify", data={}, headers={"token": token})
+    r = requests.post("http://authentication:8000/auth/verify", data={}, headers={"token": token})
     if r.status_code == 200:
         info = r.json()['data']
         return info
@@ -78,7 +78,7 @@ def info(request):
 
 
 def request_order(restaurant, customer, foods_list):
-    r = requests.post("http://localhost:8001/restaurants/" + restaurant + "/order",
+    r = requests.post("http://restaurant:8001/restaurants/" + restaurant + "/order",
                       data={'foods': foods_list, 'customer': customer}, headers={"token": PANEL_TOKEN})
     if r.status_code == 200:
         order = r.json()['data']
@@ -90,7 +90,7 @@ def request_order(restaurant, customer, foods_list):
 
 
 def get_order(restaurant, order_id):
-    r = requests.get("http://localhost:8001/restaurants/" + restaurant + "/order/" + str(order_id),
+    r = requests.get("http://restaurant:8001/restaurants/" + restaurant + "/order/" + str(order_id),
                      data={}, headers={"token": PANEL_TOKEN})
     if r.status_code == 200:
         order = r.json()['data']
